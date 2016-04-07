@@ -1,4 +1,3 @@
-<?php include "php/config.php" ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -51,10 +50,37 @@
         
         
         
+		<div class="menu">
+			<div class="menu2_close"></div>
+			
+			<br><a href="#terms" class="mn1">Услуги</a>
+			<br><a href="#types" class="mn2">Что мы делаем для вас</a>
+			<br><a href="#actions" class="mn3">Сервис</a>
+			<br><a href="#contacts" class="mn4">Акция</a>
+			<br><a href="#contacts" class="mn4">Комиссия</a>
+			<br><a href="#contacts" class="mn4">Наши проекты</a>
+			<br><a href="#c10" class="mn4">Команда</a>
+			<br><a href="#contacts" class="mn4">Контакты</a>
+		</div>
+        
        
         
       
-        
+        <section class="c1">
+            
+            <div class="menu_button2">
+                <div class="hamb menu2_open"></div>
+                <svg 
+                 xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                 width="67px" height="94px" class="menu_rumb_svg menu2_open">
+                    <a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#" class="click_menu_button" >
+                        <path fill-rule="evenodd"   d="M33.507,0.899 C33.507,0.899 66.309,47.301 66.309,47.301 C66.309,47.301 33.507,93.703 33.507,93.703 C33.507,93.703 0.704,47.301 0.704,47.301 C0.704,47.301 33.507,0.899 33.507,0.899 Z"/>
+                    </a>
+                </svg>
+
+            </div>
+        </section>
         
         
         

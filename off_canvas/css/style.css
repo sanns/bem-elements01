@@ -1,0 +1,87 @@
+
+
+
+
+
+
+.menu {
+	background:rgba(33,43,55,0.98);
+    color: #687481;
+    
+	width:100%;
+	height:100%;
+    
+    
+	position:fixed;
+	left:0px;
+	top:0px;
+	z-index:10;
+    
+    
+    font-family: gotp;
+    font-size: 18px;
+    line-height: 28px;
+	text-align:center;
+
+	opacity:0;
+	visibility:hidden;
+
+	-webkit-transition: opacity 0.2s;
+	-moz-transition: opacity 0.2s;
+	transition: opacity 0.2s;
+}
+
+.menu2_close {
+	display:block;
+	width:29px;
+	height:29px;
+	cursor:pointer;
+	background:url(../img/misc/menu_close.png) no-repeat center;
+	margin:87px auto 80px auto;
+	position:relative;
+	top:-40px;
+
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
+.menu a {
+	display:inline-block;
+    
+    padding: 15px 0;
+    
+    border: 2px solid transparent;
+    border-left: none;
+    border-right: none;
+    
+	position:relative;
+	
+    bottom:-80px;
+	opacity:0;
+
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
+.menu a:hover, .menu a.active {
+	color:#fff;
+    border-color: initial;
+    
+    font-size: 22px;
+}
+
+.menu.menu_opened {
+	opacity:1;
+	visibility:visible;
+}
+
+.menu.menu_opened .menu2_close {
+	top:0;
+}
+
+.menu.menu_opened a.mn {
+	bottom:0;
+	opacity:1;
+}
