@@ -1,0 +1,153 @@
+
+
+/*=============== Cкрытое Меню =======================*/
+.off_canvas{
+	position:fixed;
+	z-index:10000;
+    
+	display:block;
+	top: 0;
+	width:360px;
+    height: 100%;
+	padding-top: 160px;
+    margin-left: -360px;/*hidden*/
+    
+	font-size: 16px;
+    
+	color: #9b9b9b;
+    background-color: rgba(0,0,0, 0.5);
+	transition:0.4s;
+}
+.off_canvas ul li{
+}
+.off_canvas ul li:hover{
+    color: #fff;
+}
+.off_canvas ul li a{
+	display:block;
+    padding: 15px 70px 15px 56px;
+    
+	background-color:rgba(0,0,0,0.0);
+	/*border-bottom:1px solid rgba(255,255,255,0.2);*/
+}
+
+.off_canvas.opened {
+    margin-left: 0;
+    z-index: 10000;
+}
+
+
+
+.off_canvas2{
+	position:fixed;
+	z-index:10000;
+    
+	display:block;
+    top: 50px;
+    left: 51px;
+    width: 55px;
+    height: 55px;
+    margin-left: -360px;/*hidden*/
+    
+    
+	color: #9b9b9b;
+    background-color: rgba(0,0,0, 0.5);
+	transition:0.4s;
+    
+    
+    display: none;
+    
+}
+.off_canvas2.opened {
+    margin-left: 0;
+}
+/*-----------------------------X button-----------------*/
+
+#menu_button{
+    position: fixed;
+    top: 60px;
+    left: 56px;
+    
+	width: 45px;
+	height: 36px;
+    margin-bottom: 50px;
+	
+	cursor:pointer;
+    
+    transform: rotate(0deg);
+    
+	-webkit-transition:0.4s;
+	-moz-transition:0.4s;
+	-o-transition:0.4s;		
+	transition:0.4s;
+}
+#menu_button.opened {
+    transform: rotate(180deg);
+}
+
+#menu_button.opened .stick {
+    box-shadow: none;
+}
+
+.stick{
+	-webkit-transition:0.4s;
+	-moz-transition:0.4s;
+	-o-transition:0.4s;	
+	transition:0.4s;
+    
+	width:45px;
+	height:2px;
+    
+	background-color:white;
+	position:relative;
+	transform:rotate(0deg);
+	-webkit-transform: rotate(0deg) ;
+	-moz-transform: rotate(0deg) ;
+	-o-transform: rotate(0deg) ;
+	-ms-transform: rotate(0deg) ;	
+	opacity:1;
+    
+    box-shadow: 0 0 10px 2px #000;
+}
+
+#top_stick{
+	margin-bottom:14px;
+
+}
+
+#center_stick{
+	margin-bottom:14px;
+    
+}
+
+#bottom_stick{
+    
+}
+
+
+.stick_x_top{
+	transform: rotate(45deg) ;
+	-webkit-transform: rotate(45deg) ;
+	-moz-transform: rotate(45deg) ;
+	-o-transform: rotate(45deg) ;
+	-ms-transform: rotate(45deg) ;	
+	margin-top:10px;
+}
+
+.stick_x_center{
+	opacity:0;	
+}
+
+.stick_x_bottom{
+	transform: rotate(-45deg) ;
+	-webkit-transform: rotate(-45deg) ;
+	-moz-transform: rotate(-45deg) ;
+	-o-transform: rotate(-45deg) ;
+	-ms-transform: rotate(-45deg) ;
+	margin-top:-14px;
+}
+
+
+
+
+

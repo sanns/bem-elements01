@@ -7,8 +7,9 @@
 	<title></title>
 	<link rel="icon" href="<? echo $prefix; ?>img/favicon.ico" type="image/x-icon">
 	<link rel="shortcut icon" href="<? echo $prefix; ?>img/favicon.ico" type="image/x-icon">
-	<link rel="stylesheet" href="<? echo $prefix; ?>css/style.css" />
 	
+	<link rel="stylesheet" href="<? echo $prefix; ?>css/off_canvas.css" />
+	<link rel="stylesheet" href="<? echo $prefix; ?>css/menu_fulls.css" />
 	
 	
 </head>
@@ -106,8 +107,13 @@
     
 
 
-
-	
+	<input type="hidden" name="prefix" class="prefix" value="<? echo $prefix; ?>">
+	<input type="hidden" name="phone_format" class="phone_format" value="<? echo $phone_format; ?>">
+	<input type="hidden" name="referer" value="<? echo $_SERVER['HTTP_REFERER'] ?>">
+	<input type="hidden" name="ref_url" value="<? echo $_SERVER['QUERY_STRING'] ?>">
+	<input type="hidden" class="formname" name="formname" value="">
+	<input type="hidden" class="sitename" name="sitename" value="<? echo $sitename; ?>">
+	<input type="hidden" class="emailsarr" name="emailsarr" value="<? echo $emailsArr; ?>">
 	
 	<script type="text/javascript" src="<? echo $prefix; ?>js/plugins.js"></script>
 	
@@ -116,6 +122,7 @@
 	<!-- Перед закрывающим тегом </body> -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     <script type="text/javascript" src="js/map.js"></script>
+    
     
     
 </body>
