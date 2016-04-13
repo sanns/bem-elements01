@@ -42,6 +42,9 @@
     margin: 23px 0;
 }
 .c7 .details__indoor {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     padding: 145px 0;
     max-width: 1282px; 
 }
