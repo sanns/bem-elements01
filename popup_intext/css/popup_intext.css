@@ -1,0 +1,137 @@
+
+.reviews {
+    width: 100%;
+    height: 0%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+    overflow: hidden;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-flow: nowrap;
+    -webkit-flex-flow: nowrap;
+    align-items: center;
+    -webkit-align-items: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    opacity: 0;
+    transition: height 0s ease 0.6s, opacity 0.6s ease 0s;
+}
+
+.reviews.active{
+    height: 100%;
+    opacity: 1;
+    transition: height 0s ease 0s, opacity 0.6s ease 0s;
+}
+li .active {
+    border: 1px solid #e3c145;
+}
+
+.reviews__indoor{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: rgba(0, 0, 0, 0.70);
+    cursor: pointer;
+}
+
+.reviews__main {
+    max-width: 712px;
+    
+    position: relative;
+    background: #fff;
+    text-align: center;
+    transform: scale(0.5) translateY(10%) perspective(1000px) rotateY(-90deg);
+    -webkit-transform: scale(0.5) translateY(10%) perspective(1000px) rotateY(-90deg);
+    transition: 0.6s ease 0s;
+}
+
+.reviews.active .reviews__main{
+    transform: scale(1) translateY(0%) perspective(1000px) rotateY(0deg);
+    -webkit-transform: scale(1) translateY(0%) perspective(1000px) rotateY(0deg);
+}
+
+.reviews__main__close {
+    position: absolute;
+    top: 29px;
+    right: 30px;
+    cursor: pointer;
+}
+
+.reviews__main__wrapper {
+    margin: 59px 66px;
+    font-family: 'futuranewbook-reg';
+}
+
+
+.reviews__main__wrapper__title--change{
+    margin-top: 26px;
+}
+
+.reviews__main__wrapper > img{
+	display: block;
+}
+
+.reviews__main__wrapper__title {
+    font-family: 'Conv_GaramondPremrPro';
+    font-size: 30px;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin: 19px 0px;
+}
+
+#screen3 .dots_list{
+    text-align: left;
+    color: #747474;
+}
+
+
+#screen3 .dots_list>li:before {
+    content: '';
+    position: absolute;
+}
+
+
+.reviews__main__wrapper__info {
+    width: 517px;
+    margin: 0px auto 0px;
+    font-family: 'Conv_FuturaNewBook_0';
+    font-size: 18px;
+    color: #747474;
+    line-height: 19px;
+}
+
+.reviews__main__wrapper__list {
+    width: 565px;
+    margin: 0px auto 0px;
+    font-family: 'Conv_FuturaNewBook_0';
+    font-size: 18px;
+    color: #747474;
+    line-height: 19px;
+}
+
+.reviews__main__wrapper__list > li {
+    //margin: 10px 0px;
+}
+
+.reviews .btn {
+    width: 352px;
+    height: 50px;
+    text-transform: uppercase;
+    margin: 29px auto 0px;
+    
+    line-height: 2.8;
+}
+
+
+
+
+
+
+

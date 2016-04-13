@@ -151,3 +151,19 @@
 
 
 
+
+
+.test_block:before {
+    content: attr(id);
+    font-size: 50px;
+    
+}
+.test_block {
+    
+    min-height: 500px;
+    background-color: #ccc;
+    border-bottom: 5px dashed;
+}
+a[href^="#"].active {
+    color: red;
+}
