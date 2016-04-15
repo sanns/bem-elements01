@@ -4,3 +4,8 @@ div {
 .second_com {
     padding-left: 15px;
 }
+
+
+.likes_qnty {
+    display: inline-block;
+}

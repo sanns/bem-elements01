@@ -1,5 +1,6 @@
 $(document).ready(function(){
     
+    //menu_fullscr
 	$('.menu2_open').click(function() {
         
         console.log(1, 'asdf');
@@ -23,7 +24,7 @@ $(document).ready(function(){
 		$('.menu a').removeClass('mn');
 		$('.menu').removeClass('menu_opened');
 	});
-    
+    //end menu_fullscr
     
     
     

@@ -72,7 +72,8 @@ function CommentManager() {
     this.drawComments = function() {
         $(document).ready(function(){
                           
-            $('<p>').text(commentsQnty_).appendTo('body');
+            $('<p>').text('Posts : '+ commentsQnty_).appendTo('body');
+            $('<textarea>').appendTo('body');
             
             //document.write('<style> td { color: #F40 } </style>');
             
@@ -89,8 +90,13 @@ function CommentManager() {
                     
                     //разница?!
                     //$('<div>').appendTo('body').text(commentTemp.content);
-                    $('<div>').attr('data-id' , commentTemp.id )
-                        .text(commentTemp.content).appendTo('body');
+                    $('<div>')
+                        .attr('data-id' , commentTemp.id ).text(commentTemp.content)
+                        .append('<div class="likes_qnty">'+commentTemp.likesNum)
+                        .append('<button class="likeit">Like')
+                    
+                        .append('<button class="respond">Respond')    
+                        .appendTo('body');
                     
                 }
                 
@@ -107,7 +113,12 @@ function CommentManager() {
                     
                     //разница?!
                     //$('<div>').appendTo('body').text(commentTemp.content);
-                    $('<div class="second_com">').text(commentTemp.content)
+                    $('<div>')
+                        .attr('data-id' , commentTemp.id ).text(commentTemp.content)
+                        .append('<div class="likes_qnty">'+commentTemp.likesNum)
+                        .append('<button class="likeit">Like')
+                        
+                        .addClass('second_com')
                         .insertAfter('[data-id="'+ commentTemp.parentId +'"]');
                     
                 }
@@ -155,3 +166,16 @@ var commentManager2 = new CommentManager();
 
 commentManager2.consoleComments(2);
 
+
+
+
+
+$(document).ready(function(){
+    
+});
+$(document).on('click', '.response', function() {
+    var $thisClkRsp = $(this);
+    
+    
+
+});
