@@ -17,14 +17,19 @@ var persons = [
 ];
 
 
-function CommentManager() {
+function CommentManager(_unique_new_class) {
     //
     // this = {}
+    var self = this; //для функций, которым нужен this, но которые нельзя помещать в this[...] .
+    
     var commentsQnty_ = 0;
     var commentsIncrement_ = 0; //не предназначен для уменьшения, в отличие от commentsQnty_;
     var comments = [ //:Comment[]
            
     ];
+    var commentsBlock; //jquery object
+    
+    log1(37, _unique_new_class);
     
     
     function Comment(_person, _content,  _lvl , _parent) {
@@ -109,11 +114,26 @@ function CommentManager() {
         console.log(_cons_tag, commentsQnty_ );
         console.log(_cons_tag, comments);
     }
+    function createCommentsBlock(_unique_new_class) {
+        
+        commentsBlock = $('<div>').addClass(_unique_new_class).appendTo('body');
+        self.drawComments();
+    }
+    function createCommonComment(commentTemp) {
+        
+        return  $('<div>')
+                        .addClass('comment').attr('data-id' , commentTemp.id )
+                        .append('<div class="person">'+commentTemp.person)
+                        .append('<span>'+commentTemp.content)
+                        .append('<div class="likes_qnty">'+commentTemp.likesNum)
+                        .append('<button class="likeit">Like')
+        ;
+    }
     this.drawComments = function() {
         $(document).ready(function(){
-            $('body').empty();
+            commentsBlock.empty();
                           
-            $('<p>').text('Posts : '+ commentsQnty_).appendTo('body');
+            $('<p>').text('Posts : '+ commentsQnty_).appendTo(commentsBlock);
             
             //document.write('<style> td { color: #F40 } </style>');
             
@@ -128,40 +148,19 @@ function CommentManager() {
                     
                     console.log(34, commentTemp);
                     
-                    //разница?!
-                    //$('<div>').appendTo('body').text(commentTemp.content);
-                    $('<div>')
-                        .addClass('comment').attr('data-id' , commentTemp.id )
-                        .append('<div class="person">'+commentTemp.person)
-                        .append('<span>'+commentTemp.content)
-                        .append('<div class="likes_qnty">'+commentTemp.likesNum)
-                        .append('<button class="likeit">Like')
                     
+                    createCommonComment(commentTemp)
                         .append('<button class="respond">Respond')    
-                        .appendTo('body');
+                        .appendTo(commentsBlock);
                     
                 }
-                
-            }
-            //второй уровень [1]
-            for( var i=0, l=comments.length; i<l; ++i ) {
-                
-                
-                var commentTemp = comments[i];
+             
                 
                 if( commentTemp.level  === 1 ){
                     
                     console.log(34, commentTemp.parentId);
                     
-                    //разница?!
-                    //$('<div>').appendTo('body').text(commentTemp.content);
-                    $('<div>')
-                        .addClass('comment').attr('data-id' , commentTemp.id )
-                        .append('<div class="person">'+commentTemp.person)
-                        .append('<span>'+commentTemp.content)
-                        .append('<div class="likes_qnty">'+commentTemp.likesNum)
-                        .append('<button class="likeit">Like')
-                        
+                    createCommonComment(commentTemp)
                         .addClass('second_com')
                         .insertAfter('[data-id="'+ commentTemp.parentId +'"]');
                     
@@ -169,19 +168,28 @@ function CommentManager() {
                 
             }
             
-            $('<textarea>').appendTo('body');
-            $('<button class="send_cmnt">Send comment</button>').appendTo('body');
+            $('<textarea>').appendTo(commentsBlock);
+            $('<button class="send_cmnt">Send comment</button>').appendTo(commentsBlock);
             
         });
     }
     
     
     
+    //createCommentsBlock.call(this, _unique_new_class);
+    createCommentsBlock(_unique_new_class);
+    
+    log1(36, _unique_new_class);
     //return this
 }
 
 
-var commentManager1 = new CommentManager();
+
+
+
+//Тесты:
+
+var commentManager1 = new CommentManager('comment_mng_1');
 
 commentManager1.newComment(persons[0] , 'Content#1: lallal.');
 commentManager1.newComment(persons[1] , 'Content#2: lallal.');
@@ -209,14 +217,15 @@ commentManager1.drawComments(1);
 
 
 //второй пулл комментов:
-var commentManager2 = new CommentManager();
+var commentManager2 = new CommentManager('unique_class_2');
 
 commentManager2.consoleComments(2);
 
 
 
-
-
+//Обработчики:
+//
+//TODO поместить внутрь класса Manager, и локализовать инпуты относительно конкретного блока  комментариев.
 $(document).ready(function(){
     
 });
