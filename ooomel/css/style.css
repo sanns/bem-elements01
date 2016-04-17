@@ -5,7 +5,23 @@ div {
     padding-left: 15px;
 }
 
+.person {
+    display: inline-block;
+    margin-right: 5px;
+}
 
 .likes_qnty {
     display: inline-block;
+}
+
+
+
+.likeit {
+    cursor: pointer;
+}
+
+
+.respond {
+    cursor: not-allowed;
+    opacity: .5;
 }
