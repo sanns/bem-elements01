@@ -28,6 +28,7 @@ function CommentManager(_unique_new_class) {
            
     ];
     var commentsBlock; //jquery object
+    var textarea;
     
     log1(37, _unique_new_class);
     
@@ -36,6 +37,7 @@ function CommentManager(_unique_new_class) {
         //
         // this = {}
         
+        //TODO может лучше спрятать?
         this.id = commentsIncrement_;
         this.parentId = _parent || 0;
         this.level = _lvl || 0;
@@ -126,7 +128,7 @@ function CommentManager(_unique_new_class) {
                         .append('<div class="person">'+commentTemp.person)
                         .append('<span>'+commentTemp.content)
                         .append('<div class="likes_qnty">'+commentTemp.likesNum)
-                        .append('<button class="likeit">Like')
+                        .append('<button class="likeit">Like '+_unique_new_class+commentTemp.id)
         ;
     }
     this.drawComments = function() {
@@ -146,7 +148,6 @@ function CommentManager(_unique_new_class) {
                 
                 if( commentTemp.level  === 0 ){
                     
-                    console.log(34, commentTemp);
                     
                     
                     createCommonComment(commentTemp)
@@ -158,17 +159,18 @@ function CommentManager(_unique_new_class) {
                 
                 if( commentTemp.level  === 1 ){
                     
-                    console.log(34, commentTemp.parentId);
                     
                     createCommonComment(commentTemp)
                         .addClass('second_com')
-                        .insertAfter('[data-id="'+ commentTemp.parentId +'"]');
+                        .insertAfter(
+                        commentsBlock.find('[data-id="'+ commentTemp.parentId +'"]')
+                    );
                     
                 }
                 
             }
             
-            $('<textarea>').appendTo(commentsBlock);
+            textarea = $('<textarea>').appendTo(commentsBlock);
             $('<button class="send_cmnt">Send comment</button>').appendTo(commentsBlock);
             
         });
@@ -176,8 +178,52 @@ function CommentManager(_unique_new_class) {
     
     
     
+    
+    
+    
     //createCommentsBlock.call(this, _unique_new_class);
     createCommentsBlock(_unique_new_class);
+    
+    
+    
+    //Обработчики:
+    //
+    //TODO поместить внутрь класса Manager, и локализовать инпуты относительно конкретного блока  комментариев.
+    //TODO сделать, чтоб обработчики ставились на document только при создании первого блока.
+    $(document).ready(function(){
+
+    });
+    $(commentsBlock).on('click', '.likeit', function() { //! Здесь кнопка likeit Никак не связана с self!
+        var $thisClkLk = $(this);
+
+        log1(41,$thisClkLk);
+        
+        var commentClicked$ = $thisClkLk.closest('.comment')
+        , commentClickedId = commentClicked$.attr('data-id');
+
+        
+        var commentClickedObj = self.getCommentById(commentClickedId);
+        
+        log1(41,commentClickedObj);
+
+        commentClickedObj.likeIt(persons[0]);
+        self.drawComments();
+
+    });
+    $(commentsBlock).on('click', '.response', function() {
+        var $thisClkRsp = $(this);
+    });
+    $(commentsBlock).on('click', '.send_cmnt', function() {
+        var $thisClkSend = $(this);
+
+        var commentText = textarea.val();
+
+
+        self.newComment(persons[0] , commentText);
+        self.drawComments();
+    });
+    
+    
     
     log1(36, _unique_new_class);
     //return this
@@ -223,34 +269,3 @@ commentManager2.consoleComments(2);
 
 
 
-//Обработчики:
-//
-//TODO поместить внутрь класса Manager, и локализовать инпуты относительно конкретного блока  комментариев.
-$(document).ready(function(){
-    
-});
-$(document).on('click', '.likeit', function() {
-    var $thisClkLk = $(this);
-    
-    var commentClicked$ = $thisClkLk.closest('.comment')
-    , commentClickedId = commentClicked$.attr('data-id')
-    , commentClickedObj = commentManager1.getCommentById(commentClickedId);
-    
-    commentClickedObj.likeIt(persons[0]);
-    commentManager1.drawComments(1);
-    
-});
-$(document).on('click', '.response', function() {
-    var $thisClkRsp = $(this);
-});
-
-$(document).on('click', '.send_cmnt', function() {
-    var $thisClkSend = $(this);
-    
-    var textarea = $('textarea'),
-        commentText = textarea.val();
-    
-    
-    commentManager1.newComment(persons[0] , commentText);
-    commentManager1.drawComments(1);
-});
