@@ -1,0 +1,29 @@
+
+
+.fixed {
+	position:fixed;
+    overflow: auto;
+	//left:0px;
+	//top:0px;
+	//z-index:10;
+}
+
+.background {
+    background-image: url(../img/pic.png);
+    background-repeat: no-repeat;
+    //background-position: 0 0;
+    //background-size: auto;
+}
+
+
+.rgba {
+    //color: #796969;
+    color: rgba(0,0,0, .2);
+}
+
+
+.w100p {
+    width: 100%;
+    /*частенько:*/
+    box-sizing: border-box;
+}

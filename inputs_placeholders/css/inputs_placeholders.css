@@ -1,0 +1,484 @@
+.color--red {
+    color: red;
+}
+.color--1 {
+    color: #9C27B0;
+}
+input {
+    outline: none;
+}
+
+
+
+
+
+/*form*/
+form {
+    text-align: left;
+    background-color: #847A7A;
+}
+form label
+,form input
+,form textarea
+,form select
+{
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    
+    border: none;
+}
+form input[type="password"],
+form input[type="text"],
+form textarea,
+form select{
+    /*not placeholder styles*/
+    padding: 11px; /*to be clickable pd*/
+	
+    
+    height: 40px;
+    margin-top: 19px;
+    margin-bottom: 19px;
+    border: 1px solid;
+    
+    font-size: inherit;
+    line-height: 1;
+    color: inherit;
+    background-color: #fff;
+    background-color: rgba(255,255,255, .5);
+    
+    transition: .3s linear;
+}
+
+form input[type="text"],
+form textarea,
+form select{
+    border-color: initial;
+}
+
+
+/*аналоги*/
+form input[type="password"]:focus,
+form input[type="text"]:focus,
+form textarea:focus ,
+form input[type="text"]:hover,
+form textarea:hover {
+    font-size: inherit;
+    line-height: 1;
+    transition: .5s;
+}
+form input[type="password"]:hover::-webkit-input-placeholder,
+form input[type="text"]:hover::-webkit-input-placeholder,
+form textarea:hover::-webkit-input-placeholder {
+    font-size: inherit;
+    line-height: 1;
+    transition: .5s;
+}
+form input[type="password"]:hover::-moz-placeholder,
+form input[type="text"]:hover::-moz-placeholder,
+form textarea:hover::-moz-placeholder {
+    /*font-size: 20px;
+    line-height: 24px;/*no transition*/
+    transition: .5s;
+    
+}
+form input[type="text"]:focus,
+form textarea:focus{
+    
+    //background-color: #98e6f4;
+}
+
+form select
+,form option{
+    
+    font-family: inherit;
+    font-size: 16px;
+}
+
+/*аналоги:*/
+form input[type="password"]::-moz-placeholder 
+,form input[type="text"]::-moz-placeholder 
+,form textarea::-moz-placeholder {
+    /*only placeholder styles*/
+    //padding-top: 3px; /*почему-то иначе выше*/
+    color: inherit;
+    opacity: .3;
+}
+form input[type="password"]::-webkit-input-placeholder 
+,form input[type="text"]::-webkit-input-placeholder 
+,form textarea::-webkit-input-placeholder {
+    /*only placeholder styles*/
+    //padding-top: 3px; /*почему-то иначе выше*/
+    color: inherit;
+    opacity: .3;
+    
+}
+/*аналоги только плейсхолдеры и value:*/
+form input[type="password"],
+form input[type="text"],
+form textarea {
+	
+    font-family: inherit;
+	font-size: 16px;
+	line-height: 1;
+    letter-spacing: normal;
+	font-weight: normal;
+    text-align: left;
+    text-transform: none;
+	transition: .3s linear;
+    
+}
+form input[type="password"]::-webkit-input-placeholder,
+form input[type="text"]::-webkit-input-placeholder,
+form textarea::-webkit-input-placeholder{
+
+    font-family: inherit;
+	font-size: 16px;
+	line-height: 1;
+    letter-spacing: normal;
+	font-weight: normal;
+    text-align: left;
+    text-transform: none;
+	transition: .3s linear;
+}
+form input[type="password"]::-moz-placeholder
+, form input[type="text"]::-moz-placeholder
+, form textarea::-moz-placeholder{
+
+    font-family: inherit;
+	font-size: 16px;
+	line-height: 1;
+    letter-spacing: normal;
+	font-weight: normal;
+    text-align: left;
+    text-transform: none;
+	transition: .3s linear;
+}
+/*аналоги*/
+form textarea::-webkit-input-placeholder{
+    text-align: left !important;
+}
+form textarea::-moz-placeholder{
+    text-align: left !important;
+}
+/**/
+form input[type="submit"]
+,form .buttn
+,form .btn{
+    width: 100%;
+    //margin-top: 20px;
+    margin-bottom: 15px;
+    
+    
+    cursor:pointer;
+}
+form textarea {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    min-height: 109px;
+    text-align: left;
+}
+
+form .desc { display: none;}
+
+
+
+form label
+,form textarea {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form .btn, #thx .btn ,#fail .btn {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.login_form  {
+    padding: 0;
+    
+    max-width: 400px;
+    margin: auto;
+}
+.login_form label {
+    //display: inline-block;
+    //position: relative;
+}
+.login_form.login_form  input {
+    color: #fff;
+    border: none;
+    margin-bottom: 21px;
+    margin-top: 17px;
+    
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 15px 30px;
+    background: none;
+    margin-bottom: 21px;
+    margin-top: 17px;
+}
+.login_form input[name='password'] {
+    height: 57px;
+    padding: 19px 30px;
+}
+.login_form .popup_h1 {
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*after inputs*/
+.screen4__indoor__right__spec {
+    display: inline-block;
+    width: auto;
+    
+    color: #fff;
+    
+    line-height: 20px;
+    
+    margin-top: 0px;
+    margin-left: 17px;
+    text-align: left;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.screen4__indoor__right__spec__check {
+    width: 18px;
+    height: 18px;
+    background: url(../img/misc/checkbox.svg) no-repeat 0px 0px;
+    background-color: red;
+    float: left;
+    margin-top: 1px;
+}
+.screen4__indoor__right__spec__check > svg {
+    display: block;
+    fill: none;
+    stroke: #53B7DE;
+    stroke-width: 2px;
+    stroke-miterlimit: 10;
+    margin: -3px 0px 0px 3px;
+    stroke-dasharray: 27px;
+    stroke-dashoffset: 27px;
+    transition: 0.3s ease 0s;
+}
+
+.screen4__indoor__right__spec__check input[type="checkbox"]
+{display: none;}
+.screen4__indoor__right__spec__check input:checked + svg,
+.screen4__indoor__right__spec__check.active > svg {
+    stroke-dashoffset: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+    
+    
+    /*подмена паддингов*/
+    .wrapp {
+        padding: 0;
+    }
+    .wrapp--1 {
+        padding: 0 10px ;
+    }
+    /*cancel override:*/
+    .wrapp--1 {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    
+    
+    .flex_tables__block:nth-child(n+2) {
+        display: none;
+    }
+    
+    
+    
+    
+    .c2 {
+        font-size: 11px;
+    }
+    
+    /*аналоги только плейсхолдеры и value:*/
+     form input[type="text"]
+    ,form input[type="password"]
+    ,form select
+    ,form textarea {
+
+        font-family: inherit;
+        font-size: 11px;
+        line-height: 1;
+        letter-spacing: normal;
+        font-weight: normal;
+        text-align: left;
+        text-transform: none;
+        transition: .3s linear;
+
+    }
+     form input[type="password"]::-webkit-input-placeholder
+    ,form input[type="text"]::-webkit-input-placeholder
+    ,form textarea::-webkit-input-placeholder{
+
+        font-family: inherit;
+        font-size: 11px;
+        line-height: 1;
+        letter-spacing: normal;
+        font-weight: normal;
+        text-align: left;
+        text-transform: none;
+        transition: .3s linear;
+
+    }
+     form input[type="password"]::-moz-placeholder
+    , form input[type="text"]::-moz-placeholder
+    , form textarea::-moz-placeholder{
+
+        font-family: inherit;
+        font-size: 11px;
+        line-height: 1;
+        letter-spacing: normal;
+        font-weight: normal;
+        text-align: left;
+        text-transform: none;
+        transition: .3s linear;
+    }
+    /*аналоги*/
+    form input[type="password"]:focus,
+    form input[type="text"]:focus,
+    form textarea:focus ,
+    form input[type="password"]:hover,
+    form input[type="text"]:hover,
+    form textarea:hover {
+        font-size: 11px;
+        line-height: 1;
+    }
+    form input[type="text"]:hover::-webkit-input-placeholder,
+    form input[type="password"]:hover::-webkit-input-placeholder,
+    form textarea:hover::-webkit-input-placeholder {
+        font-size: 11px;
+        line-height: 1;
+        opacity: .3;
+    }
+    form input[type="text"]:hover::-moz-placeholder,
+    form input[type="password"]:hover::-moz-placeholder,
+    form textarea:hover::-moz-placeholder {
+        /*font-size: 20px;
+        line-height: 24px;/*no transition*/
+        transition: .5s;
+
+        opacity: .3;
+    }
+    
+    /*аналоги для логина*/
+    /*аналоги только плейсхолдеры и value:*/
+     .login_form input[type="text"]
+    ,.login_form input[type="password"]
+    ,.login_form textarea {
+
+        font-family: inherit;
+        font-size: 18px;
+        line-height: 1;
+        letter-spacing: normal;
+        font-weight: normal;
+        text-align: left;
+        text-transform: none;
+        transition: .3s linear;
+
+    }
+     .login_form input[type="password"]::-webkit-input-placeholder
+    ,.login_form input[type="text"]::-webkit-input-placeholder{
+
+        font-family: inherit;
+        font-size: 18px;
+        line-height: 1;
+        letter-spacing: normal;
+        font-weight: normal;
+        text-align: left;
+        text-transform: none;
+        transition: .3s linear;
+
+    }
+     .login_form input[type="password"]::-moz-placeholder
+    , .login_form input[type="text"]::-moz-placeholder{
+
+        font-family: inherit;
+        font-size: 18px;
+        line-height: 1;
+        letter-spacing: normal;
+        font-weight: normal;
+        text-align: left;
+        text-transform: none;
+        transition: .3s linear;
+    }
+    /*аналоги для логина*/
+    .login_form input[type="password"]:focus,
+    .login_form input[type="text"]:focus,
+    .login_form textarea:focus ,
+    .login_form input[type="password"]:hover,
+    .login_form input[type="text"]:hover,
+    .login_form textarea:hover {
+        font-size: 18px;
+        line-height: 1;
+    }
+    .login_form input[type="text"]:hover::-webkit-input-placeholder,
+    .login_form input[type="password"]:hover::-webkit-input-placeholder,
+    .login_form textarea:hover::-webkit-input-placeholder {
+        font-size: 18px;
+        line-height: 1;
+        opacity: .3;
+    }
+    .login_form input[type="text"]:hover::-moz-placeholder,
+    .login_form input[type="password"]:hover::-moz-placeholder,
+    .login_form textarea:hover::-moz-placeholder {
+        /*font-size: 20px;
+        line-height: 24px;/*no transition*/
+        transition: .5s;
+
+        opacity: .3;
+    }
+    
+}
