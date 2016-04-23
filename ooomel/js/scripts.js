@@ -37,22 +37,28 @@ function CommentManager(_unique_new_class) {
         //
         // this = {}
         
-        //TODO может лучше спрятать?
-        this.id = commentsIncrement_;
-        this.parentId = _parent || 0;
-        this.level = _lvl || 0;
-        this.likesNum = 0;
-        this.personsLiked = {};
+        var id = commentsIncrement_;
+        var parentId = _parent || 0;
+        var level = _lvl || 0;
+        var likesNum = 0;
+        var personsLiked = {};
         
-        this.person  = _person;     //строка?
-        this.content = _content;    //строка?
+        var person  = _person;     //строка?
+        var content = _content;    //строка?
         
         
+        this.getId = function() {return id;}
+        this.getParentId = function() {return parentId;}
+        this.getLevel = function() {return level;}
+        this.getLikesNum = function() {return likesNum;}
+        this.getPersonsLiked = function() {return personsLiked;}
+        this.getPerson = function() {return person; }
+        this.getContent = function() {return content; }
         
         this.likeIt = function(_person , undefined){//тот, кто лайкает, а не создает комент
-            if (this.personsLiked[_person] === undefined) {
-                this.personsLiked[_person] = true;
-                ++this.likesNum;
+            if (personsLiked[_person] === undefined) {
+                personsLiked[_person] = true;
+                ++likesNum;
             }
         }
         
@@ -100,7 +106,7 @@ function CommentManager(_unique_new_class) {
         
         
         for( var i=0, l=comments.length; i<l; ++i ) {
-            if( comments[i].id  === _comment_id ){
+            if( comments[i].getId()  === _comment_id ){
                 
                 var commentTemp = comments[i];
                 
@@ -124,11 +130,11 @@ function CommentManager(_unique_new_class) {
     function createCommonComment(commentTemp) {
         
         return  $('<div>')
-                        .addClass('comment').attr('data-id' , commentTemp.id )
-                        .append('<div class="person">'+commentTemp.person)
-                        .append('<span>'+commentTemp.content)
-                        .append('<div class="likes_qnty">'+commentTemp.likesNum)
-                        .append('<button class="likeit">Like '+_unique_new_class+commentTemp.id)
+                        .addClass('comment').attr('data-id' , commentTemp.getId() )
+                        .append('<div class="person">'+commentTemp.getPerson() )
+                        .append('<span>'+commentTemp.getContent() ) //TODO вставлять текст, а не html!
+                        .append('<div class="likes_qnty">'+commentTemp.getLikesNum() )
+                        .append('<button class="likeit">Like ')
         ;
     }
     this.drawComments = function() {
@@ -146,7 +152,7 @@ function CommentManager(_unique_new_class) {
                 
                 var commentTemp = comments[i];
                 
-                if( commentTemp.level  === 0 ){
+                if( commentTemp.getLevel()  === 0 ){
                     
                     
                     
@@ -157,13 +163,13 @@ function CommentManager(_unique_new_class) {
                 }
              
                 
-                if( commentTemp.level  === 1 ){
+                if( commentTemp.getLevel()  === 1 ){
                     
                     
                     createCommonComment(commentTemp)
                         .addClass('second_com')
                         .insertAfter(
-                        commentsBlock.find('[data-id="'+ commentTemp.parentId +'"]')
+                        commentsBlock.find('[data-id="'+ commentTemp.getParentId() +'"]')
                     );
                     
                 }
