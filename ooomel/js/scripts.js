@@ -16,6 +16,8 @@ var persons = [
     ,'Nill'
 ];
 
+var you = persons[0];
+
 
 function CommentManager(_unique_new_class) {
     //
@@ -62,10 +64,11 @@ function CommentManager(_unique_new_class) {
             }
         }
         
-        this.response = function() {
-            
-            
-        }
+        //this.respond = function() {
+        //    
+        //    self.newComment( you, 
+        //    
+        //}
         
         //return this
     }
@@ -109,8 +112,6 @@ function CommentManager(_unique_new_class) {
             if( comments[i].getId()  === _comment_id ){
                 
                 var commentTemp = comments[i];
-                
-                
                 
             }
 
@@ -186,7 +187,7 @@ function CommentManager(_unique_new_class) {
     
     
     
-    
+    //Либо так:
     //createCommentsBlock.call(this, _unique_new_class);
     createCommentsBlock(_unique_new_class);
     
@@ -194,7 +195,6 @@ function CommentManager(_unique_new_class) {
     
     //Обработчики:
     //
-    //TODO поместить внутрь класса Manager, и локализовать инпуты относительно конкретного блока  комментариев.
     //TODO сделать, чтоб обработчики ставились на document только при создании первого блока.
     $(document).ready(function(){
 
@@ -212,12 +212,9 @@ function CommentManager(_unique_new_class) {
         
         log1(41,commentClickedObj);
 
-        commentClickedObj.likeIt(persons[0]);
+        commentClickedObj.likeIt(you);
         self.drawComments();
 
-    });
-    $(commentsBlock).on('click', '.response', function() {
-        var $thisClkRsp = $(this);
     });
     $(commentsBlock).on('click', '.send_cmnt', function() {
         var $thisClkSend = $(this);
@@ -225,7 +222,21 @@ function CommentManager(_unique_new_class) {
         var commentText = textarea.val();
 
 
-        self.newComment(persons[0] , commentText);
+        self.newComment(you , commentText);
+        self.drawComments();
+    });
+    //copypaste!:
+    $(commentsBlock).on('click', '.respond', function() {
+        var $thisClkRsp = $(this);
+
+        var commentText = textarea.val();
+
+        
+        var commentClicked$ = $thisClkRsp.closest('.comment')
+        , commentClickedId = commentClicked$.attr('data-id');
+        
+
+        self.newComment(you , commentText, 1, commentClickedId);
         self.drawComments();
     });
     
