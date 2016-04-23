@@ -29,7 +29,12 @@ function CommentManager(_unique_new_class) {
     var comments = [ //:Comment[]
            
     ];
-    var commentsBlock; //jquery object
+    
+    var cmLvl = 0;
+    var cmParent = null; //null - это когда родитель - body
+    
+    //jquery objects
+    var commentsBlock; 
     var textarea;
     
     log1(37, _unique_new_class);
@@ -40,7 +45,10 @@ function CommentManager(_unique_new_class) {
         // this = {}
         
         var id = commentsIncrement_;
-        var parentId = _parent || 0;
+        
+        log1( 38, _parent || 0);
+        
+        var parentId = _parent; //TODO раньше был 0, сейчас лучше? работает?
         var level = _lvl || 0;
         var likesNum = 0;
         var personsLiked = {};
@@ -78,6 +86,7 @@ function CommentManager(_unique_new_class) {
     
     this.newComment = function( _person, _content, _lvl , _parent){
         if (_content == '') return;
+        
         
         //validation:
         if (_lvl === 0) _parent = 0;
@@ -183,6 +192,12 @@ function CommentManager(_unique_new_class) {
         });
     }
     
+    //TODO сделать кнопку для этой ф.
+    function resetRespond() {
+        cmLvl = 0;
+        cmParent = null;
+    }
+    
     
     
     
@@ -216,28 +231,28 @@ function CommentManager(_unique_new_class) {
         self.drawComments();
 
     });
+    $(commentsBlock).on('click', '.respond', function() {
+        var $thisClkRsp = $(this);
+
+        var commentClicked$ = $thisClkRsp.closest('.comment');
+        
+        cmLvl = 1;
+        cmParent = commentClicked$.attr('data-id');
+        
+
+    });
     $(commentsBlock).on('click', '.send_cmnt', function() {
         var $thisClkSend = $(this);
 
         var commentText = textarea.val();
 
 
-        self.newComment(you , commentText);
+        self.newComment(you , commentText, cmLvl, cmParent);
         self.drawComments();
-    });
-    //copypaste!:
-    $(commentsBlock).on('click', '.respond', function() {
-        var $thisClkRsp = $(this);
-
-        var commentText = textarea.val();
-
         
-        var commentClicked$ = $thisClkRsp.closest('.comment')
-        , commentClickedId = commentClicked$.attr('data-id');
-        
-
-        self.newComment(you , commentText, 1, commentClickedId);
-        self.drawComments();
+        //resetRespond();
+        cmLvl = 0;
+        cmParent = null;
     });
     
     
